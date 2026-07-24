@@ -22,3 +22,12 @@ output "nat_gateway_id" {
   description = "ID of the NAT Gateway"
   value       = module.networking.nat_gateway_id
 }
+output "alb_security_group_id" {
+  description = "ALB security group ID"
+  value       = module.security.alb_security_group_id
+}
+
+output "ecs_security_group_id" {
+  description = "ECS security group ID"
+  value       = module.security.ecs_security_group_id
+}

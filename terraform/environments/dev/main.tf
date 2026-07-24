@@ -23,3 +23,12 @@ module "networking" {
 
   enable_nat_gateway = true
 }
+module "security" {
+  source = "../../modules/security"
+
+  project_name = "infra-as-code-pipeline"
+  environment  = "dev"
+
+  vpc_id         = module.networking.vpc_id
+  container_port = 8080
+}
