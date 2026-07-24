@@ -31,3 +31,12 @@ output "ecs_security_group_id" {
   description = "ECS security group ID"
   value       = module.security.ecs_security_group_id
 }
+output "ecs_log_group_name" {
+  description = "CloudWatch log group name"
+  value       = module.monitoring.ecs_log_group_name
+}
+
+output "ecs_log_group_arn" {
+  description = "CloudWatch log group ARN"
+  value       = module.monitoring.ecs_log_group_arn
+}

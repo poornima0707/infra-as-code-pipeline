@@ -32,3 +32,11 @@ module "security" {
   vpc_id         = module.networking.vpc_id
   container_port = 8080
 }
+module "monitoring" {
+  source = "../../modules/monitoring"
+
+  project_name = "infra-as-code-pipeline"
+  environment  = "dev"
+
+  retention_in_days = 30
+}
