@@ -56,7 +56,7 @@ module "compute" {
 
   log_group_name = module.monitoring.ecs_log_group_name
 
-  container_image = "public.ecr.aws/docker/library/nginx:latest"
+  container_image = "943938400079.dkr.ecr.ap-south-1.amazonaws.com/mern-backend:latest"
 
   cpu           = 256
   memory        = 512

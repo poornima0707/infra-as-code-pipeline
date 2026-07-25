@@ -93,7 +93,7 @@ resource "aws_lb_target_group" "this" {
     interval = 30
     timeout  = 5
 
-    path    = "/"
+    path     = "/"
     protocol = "HTTP"
     matcher  = "200"
   }

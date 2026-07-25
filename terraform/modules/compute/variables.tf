@@ -50,7 +50,7 @@ variable "container_image" {
   description = "Docker image URI"
   type        = string
 
-  default = "public.ecr.aws/docker/library/nginx:latest"
+  default = "943938400079.dkr.ecr.ap-south-1.amazonaws.com/mern-backend:latest"
 }
 
 
