@@ -40,3 +40,7 @@ output "ecs_log_group_arn" {
   description = "CloudWatch log group ARN"
   value       = module.monitoring.ecs_log_group_arn
 }
+output "alb_dns_name" {
+  description = "Application Load Balancer DNS name"
+  value       = module.compute.alb_dns_name
+}

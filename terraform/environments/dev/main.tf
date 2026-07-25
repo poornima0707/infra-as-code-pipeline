@@ -30,7 +30,7 @@ module "security" {
   environment  = "dev"
 
   vpc_id         = module.networking.vpc_id
-  container_port = 8080
+  container_port = 80
 }
 module "monitoring" {
   source = "../../modules/monitoring"
@@ -39,4 +39,28 @@ module "monitoring" {
   environment  = "dev"
 
   retention_in_days = 30
+}
+module "compute" {
+  source = "../../modules/compute"
+
+  project_name = var.project_name
+  environment  = var.environment
+
+  vpc_id = module.networking.vpc_id
+
+  public_subnet_ids  = module.networking.public_subnet_ids
+  private_subnet_ids = module.networking.private_subnet_ids
+
+  alb_security_group_id = module.security.alb_security_group_id
+  ecs_security_group_id = module.security.ecs_security_group_id
+
+  log_group_name = module.monitoring.ecs_log_group_name
+
+  container_image = "public.ecr.aws/docker/library/nginx:latest"
+
+  cpu           = 256
+  memory        = 512
+  desired_count = 2
+  min_capacity  = 2
+  max_capacity  = 6
 }
